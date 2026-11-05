@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevención del Acoso Verbal y Escolar | Proyecto Social</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0ea5e9', // Azul amigable
+                        secondary: '#10b981', // Verde esperanza
+                        darkbg: '#0f172a',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-100 selection:text-emerald-800">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-sky-500/20">
+                    <i class="fa-solid fa-seedling text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-bold bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">Proyecto Raíces</span>
+                    <p class="text-xs text-slate-500 font-medium">Prevención del Acoso Verbal</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                <a href="#origen" class="hover:text-sky-600 transition">Raíces</a>
+                <a href="#desarrollo" class="hover:text-sky-600 transition">Desarrollo</a>
+                <a href="#acciones" class="hover:text-sky-600 transition">Plan de Acción</a>
+                <a href="#frutos" class="hover:text-emerald-600 transition">Frutos</a>
+                <a href="#simulador" class="hover:text-sky-600 transition">Simulador Verbal</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <a href="#simulador" class="hidden sm:inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-sky-600 text-white font-medium text-sm shadow-md shadow-sky-600/20 hover:bg-sky-700 transition">
+                    Probar Empatía
+                </a>
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden text-slate-600 hover:text-slate-900 focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-4 space-y-2">
+            <a href="#origen" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Raíces</a>
+            <a href="#desarrollo" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Desarrollo</a>
+            <a href="#acciones" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Plan de Acción</a>
+            <a href="#frutos" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50">Frutos</a>
+            <a href="#simulador" class="block px-3 py-2 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sky-600">Simulador Verbal</a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="pt-20">
+
+        <!-- Hero Section -->
+        <section class="relative overflow-hidden bg-gradient-to-b from-sky-50/50 via-white to-white py-20 lg:py-32">
+            <div class="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="text-center max-w-3xl mx-auto">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-sky-100 text-sky-700 text-xs font-semibold mb-6 shadow-sm">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <span>Proyecto Social Educativo</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                        Cultivando el Respeto: <span class="bg-gradient-to-r from-sky-600 to-emerald-600 bg-clip-text text-transparent">Detengamos el Acoso Verbal</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-slate-600 mb-10 leading-relaxed">
+                        Un programa de intervención escolar basado en la empatía, la comunicación asertiva y la reconstrucción del tejido social en el aula.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#origen" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 text-white font-medium hover:bg-slate-800 shadow-lg shadow-slate-900/10 transition flex items-center justify-center space-x-2">
+                            <span>Conocer el Proyecto</span>
+                            <i class="fa-solid fa-arrow-down text-sm"></i>
+                        </a>
+                        <a href="#simulador" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-slate-700 font-medium border border-slate-200 hover:bg-slate-50 transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-comments text-sky-600"></i>
+                            <span>Ir al Simulador de Palabras</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tree Visual Metaphor Banner -->
+                <div class="mt-16 bg-gradient-to-r from-sky-900 to-slate-900 rounded-3xl p-8 lg:p-12 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-10 translate-y-10">
+                        <i class="fa-solid fa-tree text-[250px]"></i>
+                    </div>
+                    <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                        <div class="border-b md:border-b-0 md:border-r border-slate-700 pb-6 md:pb-0 md:pr-6">
+                            <span class="text-sky-400 font-bold text-sm tracking-wider uppercase">Raíces (Origen)</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2">Falta de empatía y normalización</h3>
+                            <p class="text-slate-300 text-sm">Apodos, burlas y micro-agresiones verbales normalizadas desde casa y entorno.</p>
+                        </div>
+                        <div class="border-b md:border-b-0 md:border-r border-slate-700 pb-6 md:pb-0 md:pr-6">
+                            <span class="text-amber-400 font-bold text-sm tracking-wider uppercase">Tronco (Desarrollo)</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2">Escalamiento silencioso</h3>
+                            <p class="text-slate-300 text-sm">Ansiedad, aislamiento, bajo rendimiento y espectadores pasivos.</p>
+                        </div>
+                        <div>
+                            <span class="text-emerald-400 font-bold text-sm tracking-wider uppercase">Frutos (Resultados)</span>
+                            <h3 class="text-lg font-semibold mt-1 mb-2">Convivencia pacífica</h3>
+                            <p class="text-slate-300 text-sm">Entorno seguro, comunicación asertiva y apoyo mutuo constante.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 1: Orígenes (Raíces) -->
+        <section id="origen" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-sky-600 font-semibold text-sm uppercase tracking-wider">Raíces del Problema</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-4">¿Cómo se origina el acoso verbal?</h2>
+                    <p class="text-slate-600">El acoso verbal no nace de la nada; germina en conductas cotidianas arraigadas en la falta de conciencia emocional.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-xl transition duration-300 group">
+                        <div class="w-14 h-14 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-sky-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-heart-crack"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Falta de Empatía</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Incapacidad temporal o emocional para ponerse en el lugar del compañero y comprender el peso real que tienen las palabras hirientes.
+                        </p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-xl transition duration-300 group">
+                        <div class="w-14 h-14 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-amber-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-masks-theater"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Normalización de Burlas</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Frases despectivas disfrazadas de "simples bromas" o apodos sobre la apariencia, inteligencia u origen que se toleran en el día a día.
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-2xl p-8 hover:shadow-xl transition duration-300 group">
+                        <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-comments-slash"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Falta de Comunicación Asertiva</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Ausencia de herramientas emocionales para expresar desacuerdos o frustraciones sin recurrir a la agresión verbal o descalificación.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Desarrollo del Problema -->
+        <section id="desarrollo" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-amber-600 font-semibold text-sm uppercase tracking-wider">Evolución e Impacto</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-4">¿Cómo se desarrolla en la comunidad escolar?</h2>
+                    <p class="text-slate-600">El ciclo del acoso verbal escala progresivamente si no se interviene a tiempo.</p>
+                </div>
+
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-slate-200"></div>
+
+                    <div class="space-y-12 relative">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col lg:flex-row items-center">
+                            <div class="lg:w-1/2 lg:pr-12 text-center lg:text-right mb-4 lg:mb-0">
+                                <h3 class="text-lg font-bold text-slate-900">1. Micro-agresiones iniciales</h3>
+                                <p class="text-sm text-slate-600 mt-1">Apodos sutiles, comentarios pasivo-agresivos y burlas en pasillos que parecen inofensivos al principio.</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold z-10 shadow-md">A</div>
+                            <div class="lg:w-1/2 lg:pl-12 hidden lg:block"></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="flex flex-col lg:flex-row items-center">
+                            <div class="lg:w-1/2 lg:pr-12 hidden lg:block"></div>
+                            <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold z-10 shadow-md">B</div>
+                            <div class="lg:w-1/2 lg:pl-12 text-center lg:text-left mt-4 lg:mt-0">
+                                <h3 class="text-lg font-bold text-slate-900">2. Silencio y espectadores pasivos</h3>
+                                <p class="text-sm text-slate-600 mt-1">La víctima calla por pena o miedo, mientras el grupo observa en silencio, validando indirectamente la agresión.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="flex flex-col lg:flex-row items-center">
+                            <div class="lg:w-1/2 lg:pr-12 text-center lg:text-right mb-4 lg:mb-0">
+                                <h3 class="text-lg font-bold text-slate-900">3. Impacto emocional y académico</h3>
+                                <p class="text-sm text-slate-600 mt-1">Aparición de ansiedad, miedo a asistir a clases, aislamiento social y caída notable en el rendimiento escolar.</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-rose-500 text-white flex items-center justify-center font-bold z-10 shadow-md">C</div>
+                            <div class="lg:w-1/2 lg:pl-12 hidden lg:block"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Plan de Acciones -->
+        <section id="acciones" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-sky-600 font-semibold text-sm uppercase tracking-wider">Intervención Práctica</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-4">Plan de Acciones del Proyecto</h2>
+                    <p class="text-slate-600">Estrategias concretas para transformar la dinámica del aula y frenar el acoso verbal.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Action 1 -->
+                    <div class="bg-gradient-to-b from-sky-50 to-white border border-sky-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 rounded-xl bg-sky-600 text-white flex items-center justify-center text-lg font-bold mb-6">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Talleres de Sensibilización</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Sesiones interactivas breves para concientizar sobre el impacto neurológico y emocional de las palabras hirientes en los jóvenes.
+                        </p>
+                    </div>
+                    <!-- Action 2 -->
+                    <div class="bg-gradient-to-b from-emerald-50 to-white border border-emerald-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-lg font-bold mb-6">
+                            <i class="fa-solid fa-people-arrows"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Círculos de Diálogo</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Espacios seguros de expresión donde los alumnos reflexionan sobre la empatía y resuelven conflictos mediante la palabra asertiva.
+                        </p>
+                    </div>
+                    <!-- Action 3 -->
+                    <div class="bg-gradient-to-b from-purple-50 to-white border border-purple-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                        <div class="w-12 h-12 rounded-xl bg-purple-600 text-white flex items-center justify-center text-lg font-bold mb-6">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2">Mecanismo Seguro de Reporte</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Implementación de un sistema accesible y confidencial de orientación para reportar casos de acoso verbal sin temor a represalias.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Simulador Interactivo de Palabras (Empatía Verbal) -->
+        <section id="simulador" class="py-20 bg-slate-900 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-sky-400 font-semibold text-sm uppercase tracking-wider">Herramienta Interactiva</span>
+                    <h2 class="text-3xl font-bold mt-2 mb-4">Simulador de Conciencia Verbal</h2>
+                    <p class="text-slate-400">Selecciona una frase común de acoso verbal y descubre cómo transformarla en comunicación empática y constructiva.</p>
+                </div>
+
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl">
+                    <div class="space-y-4 mb-8">
+                        <label class="block text-sm font-medium text-slate-300">Elige un comentario frecuente en el aula:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="phrase-buttons">
+                            <button onclick="selectPhrase(0)" class="phrase-btn text-left p-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-sm border border-slate-600 transition flex items-center justify-between">
+                                <span class="truncate">"Qué ropa tan rara traes hoy"</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+                            </button>
+                            <button onclick="selectPhrase(1)" class="phrase-btn text-left p-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-sm border border-slate-600 transition flex items-center justify-between">
+                                <span class="truncate">"No sabes hacer nada bien"</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+                            </button>
+                            <button onclick="selectPhrase(2)" class="phrase-btn text-left p-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-sm border border-slate-600 transition flex items-center justify-between">
+                                <span class="truncate">"Cállate, nadie te preguntó"</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+                            </button>
+                            <button onclick="selectPhrase(3)" class="phrase-btn text-left p-3.5 rounded-xl bg-slate-700 hover:bg-slate-600 text-sm border border-slate-600 transition flex items-center justify-between">
+                                <span class="truncate">"Estás exagerando, era broma"</span>
+                                <i class="fa-solid fa-chevron-right text-xs text-slate-400"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Result Box -->
+                    <div id="simulation-result" class="bg-slate-900/80 border border-slate-700/80 rounded-xl p-6 transition-all duration-300">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center shrink-0 mt-1">
+                                <i class="fa-solid fa-triangle-exclamation"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-semibold text-rose-400 uppercase tracking-wide">Impacto del Acoso Verbal</h4>
+                                <p id="impact-text" class="text-slate-300 text-sm mt-1 leading-relaxed">Selecciona una frase arriba para analizar su efecto y aprender su alternativa empática.</p>
+                            </div>
+                        </div>
+                        <div id="empathetic-box" class="mt-6 pt-6 border-t border-slate-800 hidden">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-1">
+                                    <i class="fa-solid fa-seedling"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-emerald-400 uppercase tracking-wide">Alternativa Empática (Fruto)</h4>
+                                    <p id="empathetic-text" class="text-emerald-100 text-sm mt-1 font-medium leading-relaxed"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Frutos (Resultados Esperados) -->
+        <section id="frutos" class="py-20 bg-emerald-50/40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-emerald-600 font-semibold text-sm uppercase tracking-wider">Resultados Esperados</span>
+                    <h2 class="text-3xl font-bold text-slate-900 mt-2 mb-4">Los "Frutos" del Proyecto</h2>
+                    <p class="text-slate-600">Lo que buscamos lograr en nuestra comunidad escolar al aplicar este plan de acción.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Fruit 1 -->
+                    <div class="bg-white border border-emerald-100 rounded-2xl p-8 shadow-sm text-center hover:shadow-md transition">
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-6">
+                            <i class="fa-solid fa-apple-whole"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Reducción de la Violencia</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Disminución drástica de agresiones verbales, burlas y conflictos cotidianos en pasillos y salones de clase.
+                        </p>
+                    </div>
+                    <!-- Fruit 2 -->
+                    <div class="bg-white border border-emerald-100 rounded-2xl p-8 shadow-sm text-center hover:shadow-md transition">
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-6">
+                            <i class="fa-solid fa-hands-holding-child"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Apoyo Mutuo</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Transformación de los espectadores pasivos en una red activa de defensa y solidaridad entre compañeros.
+                        </p>
+                    </div>
+                    <!-- Fruit 3 -->
+                    <div class="bg-white border border-emerald-100 rounded-2xl p-8 shadow-sm text-center hover:shadow-md transition">
+                        <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-6">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Entorno Escolar Seguro</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Un espacio inclusivo, libre de miedo y ansiedad, que favorece el bienestar emocional y el rendimiento académico de todos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
+                    <i class="fa-solid fa-seedling text-sm"></i>
+                </div>
+                <span class="text-white font-bold text-base">Proyecto Social Escolar</span>
+            </div>
+            <p class="text-sm text-slate-500">Diseñado para la prevención del acoso verbal y la promoción de la convivencia pacífica.</p>
+            <div class="text-xs text-slate-600">
+                <span>© 2026 • Todos los derechos reservados</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Simulator Script -->
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Simulator Data
+        const phraseData = [
+            {
+                phrase: '"Qué ropa tan rara traes hoy"',
+                impact: "Genera inseguridad, vergüenza pública y afecta la autoestima del compañero, promoviendo la burla superficial.",
+                empathetic: '"Me gusta tu estilo, es diferente y original" o simplemente respetar los gustos y diversidad de cada quien sin juzgar.'
+            },
+            {
+                phrase: '"No sabes hacer nada bien"',
+                impact: "Invalida el esfuerzo del alumno, fomenta la frustración extrema y crea un bloqueo emocional ante futuras tareas.",
+                empathetic: '"Todos aprendemos a nuestro ritmo; si quieres, lo revisamos juntos y te apoyo a entenderlo mejor."'
+            },
+            {
+                phrase: '"Cállate, nadie te preguntó"',
+                impact: "Silencia la participación del estudiante, genera rechazo social y promueve un ambiente de intimidación y miedo a opinar.",
+                empathetic: '"Es interesante tu punto, ¿podemos escuchar tu perspectiva un momento por favor?"'
+            },
+            {
+                phrase: '"Estás exagerando, era broma"',
+                impact: "Minimiza el dolor ajeno, evade la responsabilidad emocional del agresor y anula los sentimientos legítimos de la víctima.",
+                empathetic: '"Lamento si mi comentario te hizo sentir mal, no fue mi intención ofenderte. Disculpa."'
+            }
+        ];
+
+        function selectPhrase(index) {
+            const data = phraseData[index];
+            const impactEl = document.getElementById('impact-text');
+            const empatheticBox = document.getElementById('empathetic-box');
+            const empatheticEl = document.getElementById('empathetic-text');
+
+            impactEl.textContent = data.impact;
+            empatheticEl.textContent = data.empathetic;
+            empatheticBox.classList.remove('hidden');
+
+            // Highlight active button
+            const buttons = document.querySelectorAll('.phrase-btn');
+            buttons.forEach((btn, i) => {
+                if (i === index) {
+                    btn.classList.add('bg-sky-600', 'border-sky-500', 'text-white');
+                    btn.classList.remove('bg-slate-700', 'border-slate-600');
+                } else {
+                    btn.classList.remove('bg-sky-600', 'border-sky-500', 'text-white');
+                    btn.classList.add('bg-slate-700', 'border-slate-600');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

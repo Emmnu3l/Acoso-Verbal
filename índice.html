@@ -1,183 +1,620 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prevención del Acoso Verbal | Proyecto Social</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #e74c3c;
-            --success: #27ae60;
-            --light: #f8f9fa;
-            --dark: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La empatía contra el bullying</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
+    :root {
+      --principal: #6c3fc5;
+      --secundario: #9b6dff;
+      --oscuro: #171321;
+      --claro: #f7f5ff;
+      --blanco: #ffffff;
+      --rojo: #e74c5b;
+      --texto: #34303d;
+    }
 
-        header {
-            background: linear-gradient(135deg, var(--primary), #34495e);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--claro);
+      color: var(--texto);
+      line-height: 1.6;
+    }
 
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
+    /* NAVEGACIÓN */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(23, 19, 33, 0.96);
+      padding: 15px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,.2);
+    }
 
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
+    .logo {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
 
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--primary);
-        }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: .3s;
+    }
 
-        .card.accent {
-            border-left-color: var(--accent);
-        }
+    nav a:hover {
+      color: #bca5ff;
+    }
 
-        .card.success {
-            border-left-color: var(--success);
-        }
+    /* PORTADA */
+    header {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(23,19,33,.92), rgba(108,63,197,.82)),
+        radial-gradient(circle at top right, #9b6dff, #171321);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 50px;
+    }
 
-        h2 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+    .hero {
+      max-width: 850px;
+      animation: aparecer 1s ease;
+    }
 
-        ul {
-            padding-left: 1.5rem;
-        }
+    .hero .emoji {
+      font-size: 5rem;
+      margin-bottom: 15px;
+      animation: latido 2s infinite;
+    }
 
-        li {
-            margin-bottom: 0.5rem;
-        }
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
 
-        /* Árbol interactivo o visualización */
-        .tree-section {
-            background: white;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            text-align: center;
-        }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: auto auto 30px;
+      opacity: .95;
+    }
 
-        .tree-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+    .boton {
+      display: inline-block;
+      background: white;
+      color: var(--principal);
+      padding: 15px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
 
-        .tree-level {
-            width: 100%;
-            max-width: 700px;
-            background: #f1f2f6;
-            padding: 1rem;
-            border-radius: 6px;
-            border: 1px dashed #dcdde1;
-        }
+    .boton:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
 
-        .tree-level h3 {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 0.3rem;
-        }
+    /* SECCIONES */
+    section {
+      padding: 85px 8%;
+      max-width: 1250px;
+      margin: auto;
+    }
 
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: var(--primary);
-            color: white;
-            font-size: 0.9rem;
-        }
+    .titulo {
+      text-align: center;
+      margin-bottom: 45px;
+    }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.7rem; }
-            .card { padding: 1.2rem; }
-        }
-    </style>
+    .titulo h2 {
+      color: var(--principal);
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+
+    .titulo p {
+      max-width: 700px;
+      margin: auto;
+      color: #666;
+    }
+
+    /* TARJETAS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.08);
+      transition: .3s;
+      border-bottom: 5px solid transparent;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--secundario);
+    }
+
+    .card .icono {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: var(--oscuro);
+    }
+
+    /* DESTACADO */
+    .destacado {
+      background: linear-gradient(135deg, var(--principal), #40247e);
+      color: white;
+      border-radius: 25px;
+      padding: 50px;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .destacado h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    /* ACORDEÓN */
+    .acordeon {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .pregunta {
+      background: white;
+      margin-bottom: 15px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0,0,0,.08);
+    }
+
+    .pregunta button {
+      width: 100%;
+      padding: 20px;
+      border: none;
+      background: white;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .respuesta {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: .4s;
+    }
+
+    .pregunta.activa .respuesta {
+      max-height: 250px;
+      padding: 0 20px 20px;
+    }
+
+    /* TEST */
+    .test {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    }
+
+    .opciones {
+      display: grid;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .opciones button {
+      padding: 15px;
+      border: 2px solid #e5ddf8;
+      background: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: left;
+      transition: .25s;
+    }
+
+    .opciones button:hover {
+      border-color: var(--principal);
+      background: #f6f2ff;
+    }
+
+    #resultado {
+      margin-top: 25px;
+      padding: 18px;
+      border-radius: 10px;
+      display: none;
+      font-weight: bold;
+    }
+
+    .correcto {
+      display: block !important;
+      background: #e6f8ed;
+      color: #19723a;
+    }
+
+    .incorrecto {
+      display: block !important;
+      background: #ffe8eb;
+      color: #a52335;
+    }
+
+    /* MENSAJE */
+    .mensaje-final {
+      text-align: center;
+      background: #fff;
+      border-radius: 25px;
+      padding: 55px 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.07);
+    }
+
+    .mensaje-final h2 {
+      color: var(--principal);
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .mensaje-final p {
+      max-width: 750px;
+      margin: auto;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: var(--oscuro);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    /* ANIMACIONES */
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes latido {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 700px) {
+      nav ul {
+        display: none;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      section {
+        padding: 65px 6%;
+      }
+
+      .destacado {
+        padding: 35px 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Campaña Escolar: Prevención del Acoso Verbal</h1>
-        <p>Proyecto Social para la Convivencia Pacífica y el Respeto Mutuo</p>
-    </header>
+  <!-- NAVEGACIÓN -->
+  <nav>
+    <div class="logo">🧠 Empatía</div>
+    <ul>
+      <li><a href="#empatia">Empatía</a></li>
+      <li><a href="#bullying">Bullying</a></li>
+      <li><a href="#consecuencias">Consecuencias</a></li>
+      <li><a href="#test">Reflexiona</a></li>
+    </ul>
+  </nav>
 
-    <div class="container">
+  <!-- PORTADA -->
+  <header>
+    <div class="hero">
+      <div class="emoji">💙</div>
+      <h1>Las palabras también dejan heridas</h1>
+      <p>
+        La falta de empatía puede convertir una broma en una herida.
+        Conocer, comprender y actuar puede ayudar a detener el bullying
+        y el acoso verbal.
+      </p>
+      <a href="#empatia" class="boton">Conoce más ↓</a>
+    </div>
+  </header>
 
-        <!-- Origen -->
-        <div class="card accent">
-            <h2>1. Origen del Problema</h2>
-            <p>El acoso verbal se origina principalmente en la falta de empatía, la normalización de apodos ofensivos, las burlas cotidianas y la ausencia de una comunicación asertiva entre los estudiantes, donde las palabras hirientes se minimizan como "simples bromas".</p>
-        </div>
-
-        <!-- Desarrollo -->
-        <div class="card">
-            <h2>2. Desarrollo del Problema (El Acoso Verbal en Acción)</h2>
-            <ul>
-                <li><strong>Insuficiencia inicial:</strong> Comienza con comentarios despectivos, insultos sutiles o burlas sobre la apariencia o el rendimiento escolar.</li>
-                <li><strong>Escalamiento:</strong> La repetición constante genera en la víctima un desgaste emocional profundo.</li>
-                <li><strong>Efectos:</strong> Provoca miedo, ansiedad, pérdida de confianza, aislamiento social y bajo rendimiento académico.</li>
-                <li><strong>El entorno:</strong> El resto del grupo suele adoptar un papel de espectadores pasivos por temor o indiferencia.</li>
-            </ul>
-        </div>
-
-        <!-- Plan de Acciones -->
-        <div class="card success">
-            <h2>3. Plan de Acciones</h2>
-            <ul>
-                <li><strong>Talleres de sensibilización:</strong> Pláticas cortas enfocadas en el impacto real de las palabras y la agresión verbal.</li>
-                <li><strong>Círculos de diálogo:</strong> Espacios seguros para reflexionar sobre el respeto y la empatía en el aula.</li>
-                <li><strong>Mecanismo de reporte seguro:</strong> Habilitar vías confidenciales para reportar situaciones de acoso verbal sin miedo a represalias.</li>
-            </ul>
-        </div>
-
-        <!-- Resultados / Frutos -->
-        <div class="card" style="border-left-color: #f39c12;">
-            <h2>4. Resultados Esperados ("Frutos")</h2>
-            <ul>
-                <li>Reducción significativa de los incidentes de insultos y burlas en la escuela.</li>
-                <li>Transformación de la indiferencia estudiantil en una cultura de apoyo mutuo y defensa del compañero.</li>
-                <li>Garantía de un entorno escolar seguro, inclusivo y libre de violencia verbal.</li>
-            </ul>
-        </div>
-
+  <!-- EMPATÍA -->
+  <section id="empatia">
+    <div class="titulo">
+      <h2>🧠 ¿Qué es la empatía?</h2>
+      <p>
+        La empatía es la capacidad de comprender cómo puede sentirse otra persona
+        y considerar sus emociones antes de actuar o hablar.
+      </p>
     </div>
 
-    <footer>
-        <p>Proyecto Social Escolar &copy; 2026 | Diseñado para la Convivencia Escolar Sana</p>
-    </footer>
+    <div class="grid">
+      <article class="card">
+        <div class="icono">👂</div>
+        <h3>Escuchar</h3>
+        <p>
+          Prestar atención a los sentimientos y experiencias de otras personas
+          sin burlarse ni minimizar lo que sienten.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icono">💭</div>
+        <h3>Comprender</h3>
+        <p>
+          Intentar ponerse en el lugar de otra persona y reconocer que nuestras
+          palabras y acciones pueden afectarla.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icono">🤝</div>
+        <h3>Actuar con respeto</h3>
+        <p>
+          Utilizar esa comprensión para tratar a los demás con dignidad,
+          respeto y responsabilidad.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- BULLYING -->
+  <section id="bullying">
+    <div class="titulo">
+      <h2>💬 Bullying y acoso verbal</h2>
+      <p>
+        El acoso verbal puede presentarse mediante insultos, burlas,
+        humillaciones, amenazas o comentarios que buscan dañar a otra persona.
+      </p>
+    </div>
+
+    <div class="destacado">
+      <h2>Una frase puede parecer pequeña para quien la dice...</h2>
+      <p>
+        ...pero puede permanecer durante mucho tiempo en la mente de quien la recibe.
+        La intención de "estar bromeando" no elimina el daño que una conducta puede causar.
+      </p>
+    </div>
+  </section>
+
+  <!-- FALTA DE EMPATÍA -->
+  <section>
+    <div class="titulo">
+      <h2>💔 ¿Qué relación tiene la falta de empatía?</h2>
+      <p>
+        Cuando una persona no considera los sentimientos o consecuencias de sus
+        acciones, puede ser más fácil normalizar conductas que lastiman a los demás.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="icono">🙈</div>
+        <h3>Minimizar el daño</h3>
+        <p>
+          Decir "solo era una broma" puede ignorar el impacto emocional que
+          esas palabras tienen en otra persona.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icono">😶</div>
+        <h3>Normalizar la violencia</h3>
+        <p>
+          Cuando los insultos y las burlas se consideran normales, las víctimas
+          pueden sentirse solas o tener miedo de pedir ayuda.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="icono">👥</div>
+        <h3>El papel de los espectadores</h3>
+        <p>
+          Reír, compartir o guardar silencio también puede reforzar una situación
+          de acoso. Apoyar y buscar ayuda puede marcar una diferencia.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONSECUENCIAS -->
+  <section id="consecuencias">
+    <div class="titulo">
+      <h2>⚠️ Consecuencias del acoso verbal</h2>
+      <p>El bullying puede afectar diferentes aspectos de la vida de una persona.</p>
+    </div>
+
+    <div class="acordeon">
+
+      <div class="pregunta">
+        <button>
+          ¿Cómo puede afectar a la víctima?
+          <span>＋</span>
+        </button>
+        <div class="respuesta">
+          <p>
+            Puede afectar su autoestima, seguridad, relaciones sociales y desempeño
+            escolar. Cada persona vive estas situaciones de manera diferente.
+          </p>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <button>
+          ¿Qué ocurre con quienes observan?
+          <span>＋</span>
+        </button>
+        <div class="respuesta">
+          <p>
+            Los espectadores pueden sentir miedo, culpa o creer que la violencia
+            es una forma normal de relacionarse si nadie interviene.
+          </p>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <button>
+          ¿Qué se puede hacer?
+          <span>＋</span>
+        </button>
+        <div class="respuesta">
+          <p>
+            Escuchar, no participar en las burlas, apoyar a la persona afectada
+            y comunicar la situación a un adulto, docente o persona de confianza.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TEST INTERACTIVO -->
+  <section id="test">
+    <div class="titulo">
+      <h2>🤔 Un momento para reflexionar</h2>
+      <p>Lee la situación y elige la respuesta que demuestra mayor empatía.</p>
+    </div>
+
+    <div class="test">
+      <h3>
+        Un compañero recibe constantemente burlas sobre su apariencia y parece
+        sentirse incómodo. ¿Qué sería lo más adecuado?
+      </h3>
+
+      <div class="opciones">
+        <button onclick="responder(false)">
+          😂 Reír para no quedar fuera del grupo.
+        </button>
+
+        <button onclick="responder(true)">
+          🤝 No participar, mostrar apoyo y buscar ayuda si la situación continúa.
+        </button>
+
+        <button onclick="responder(false)">
+          🙈 Ignorar la situación porque no me afecta directamente.
+        </button>
+      </div>
+
+      <div id="resultado"></div>
+    </div>
+  </section>
+
+  <!-- MENSAJE FINAL -->
+  <section>
+    <div class="mensaje-final">
+      <h2>💙 La empatía puede cambiar una historia</h2>
+      <p>
+        Antes de hablar o actuar, vale la pena preguntarnos:
+        <strong>¿Cómo me sentiría yo en su lugar?</strong>
+        <br><br>
+        El respeto no significa pensar igual que los demás. Significa reconocer
+        que todas las personas merecen ser tratadas con dignidad.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>💙 Construyamos espacios con más respeto, empatía y menos violencia.</p>
+    <p style="margin-top: 8px; opacity: .6;">
+      Proyecto de concientización sobre bullying y acoso verbal.
+    </p>
+  </footer>
+
+  <script>
+    // ACORDEÓN
+    const preguntas = document.querySelectorAll(".pregunta");
+
+    preguntas.forEach(pregunta => {
+      const boton = pregunta.querySelector("button");
+
+      boton.addEventListener("click", () => {
+        pregunta.classList.toggle("activa");
+      });
+    });
+
+    // TEST
+    function responder(correcta) {
+      const resultado = document.getElementById("resultado");
+
+      resultado.style.display = "block";
+
+      if (correcta) {
+        resultado.className = "correcto";
+        resultado.innerHTML =
+          "💙 ¡Correcto! La empatía implica reconocer que una situación puede estar dañando a alguien y decidir no ser parte del problema.";
+      } else {
+        resultado.className = "incorrecto";
+        resultado.innerHTML =
+          "💭 Piénsalo nuevamente. Aunque no seamos quienes realizan directamente las burlas, reír o ignorar puede permitir que el acoso continúe.";
+      }
+    }
+  </script>
 
 </body>
 </html>
